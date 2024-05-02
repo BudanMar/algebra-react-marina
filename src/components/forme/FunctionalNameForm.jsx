@@ -31,7 +31,8 @@ export function NameForm() {
     event.preventDefault()
     const nameValue = nameInputRef.current.value
     const checkboxValue =checkBoxInputRef.current.checked
-    setName(nameValue)
+    const finalName = checkboxValue ? nameValue : nameValue.replace(/\d/gi,"");
+    setName(finalName)
     setNumberAllowed(checkboxValue)
   
   
@@ -44,15 +45,18 @@ export function NameForm() {
       name="name" 
       type="text"
     />
+    <br/>
     <label htmlFor="box">Dopusti brojeve</label>
     <input
     ref ={checkBoxInputRef}
     name="box"
     type="checkbox"
     />
+    <br/>
     <button type="submit">Pošalji</button>
     <pre>
       Trenutna vrijednost:{name2}
+      <br/>
       Brojevi dopušteni: {(numberAllowed ? "da": "ne")}
     </pre>
   </form>;
