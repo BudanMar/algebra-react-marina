@@ -1,36 +1,8 @@
-import { createContext, useContext } from "react";
+import { ContextExample1, ContextExample2, ContextExample3, ContextExample4 } from "../components/ContextExample.jsx";
 import Header from "../components/Header.jsx";
 import { Komponenta1 } from "../components/PropDrilling.jsx";
 import { FancyTitle } from "../components/Titles.jsx";
-
-const NameContext=createContext("John")
-
-function ContextExample4 (){
-  const nameContextValue = useContext(NameContext)
-  return <p> Hello from the context example, context value:{nameContextValue}</p>
-}
-function ContextExample3 (){
-  return (<div>
-    Component3:
-    <ContextExample4/>
-    </div>)
-}
-function ContextExample2 (){
-  return (<div>
-    Component2:
-    <ContextExample3/>
-    </div>)
-}
-
-function ContextExample1 (){
-  return (<div>
-    Component1:
-    <ContextExample2/>
-    </div>)
-}
-
-
-
+import { NameContextProvider } from "../context/useNameContextValue.jsx";
 
 export function Context() {
   return(
@@ -38,17 +10,17 @@ export function Context() {
       <Header />
       <FancyTitle title="Context Page" />
       <Komponenta1 />
-      <NameContext.Provider value="Peter">
+      <NameContextProvider value="Peter">
       <ContextExample1/>
       <br/>
       <ContextExample2/>
-      </NameContext.Provider>
+      </NameContextProvider>
        <br/>
-       <NameContext.Provider value="Jane">
+       <NameContextProvider value="Jane">
         <ContextExample3/>
         <br/>
         <ContextExample4/>
-       </NameContext.Provider>
+       </NameContextProvider>
       
       
     </div>);
