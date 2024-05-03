@@ -7,6 +7,8 @@ import { Onama } from "./routes/Onama.jsx";
 import { Kontakt } from "./routes/Kontakt.jsx";
 import { Primjeri } from "./routes/Primjeri.jsx";
 import { Forme } from "./routes/Forme.jsx";
+import { Context } from "./routes/Context.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/forme",
     element: <Forme /> 
+  },
+  {
+    path: "/context",
+    element: <Context/>
   }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
